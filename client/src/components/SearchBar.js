@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { CgSearch } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { apiUrl } from '../../urls';
 
 // search bar to display all Businesses
 export const SearchBar = () => {
@@ -21,7 +20,7 @@ export const SearchBar = () => {
     useEffect(() => {
         const getBusNames = async () => {
 
-            const response = await fetch(`${apiUrl}/search/results`)
+            const response = await fetch("/search/results")
             const data = await response.json();
 
             setInputValue(data.data.map((item) => {
